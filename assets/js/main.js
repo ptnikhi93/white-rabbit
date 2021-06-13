@@ -7,11 +7,11 @@ $(window).on("resize", function (a) {
     }
     res = setTimeout(function () {
 
-        $('header nav').removeAttr('style')
+        $('header nav,.slider').removeAttr('style')
         if($(window).width() < 1024){
             $('header nav').css('top',$('header').outerHeight())
         }
-        
+        $('.slider').css('height',$('.slides .items').outerHeight())
     }, 100)   
 }).trigger('resize');
 
@@ -32,3 +32,13 @@ $('header .menu').on('click',function(){
     $(this).toggleClass('act')
     $('header nav,.cover').toggleClass('act')
 })
+
+function slider(){
+    var tl = $('.slides').length;
+    var c_index= $('.slides.active').index()+1;
+    if((c_index)>=tl){c_index=0;}
+    $('.slides').eq(c_index).addClass('active').siblings().removeClass('active')
+}
+setInterval(function(){
+    slider()
+},3000)

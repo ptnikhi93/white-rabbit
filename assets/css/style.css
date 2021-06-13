@@ -20,9 +20,12 @@ img{width: auto;height: auto;max-width: 100%;display: block;}
 
 /*Button*/
     .button{display: inline-block;width: auto;background: #C7E1BF;border-radius: 48px;padding: 0.875rem 1rem;font-size: 0.875rem;color: #102522;}
-    .btn-shop{display: inline-block;width: auto;background: #fff url(../images/arrow.png) no-repeat 88% center;border-radius: 48px;padding: 0.875rem 2.75rem 0.875rem 1rem;font-size: 0.875rem;color: #102522;border: 1px solid  #C4C4C4;background-size: 15px;}
-    
+    .btn-shop{display: inline-block;width: auto;background: #fff url(../images/arrow.png) no-repeat 88% center;border-radius: 48px;padding: 0.875rem 2.75rem 0.875rem 1rem;font-size: 0.875rem;color: #102522;border: 1px solid  #C4C4C4;background-size: 15px;transition: all 0.5s ease-in-out;-webkit-transition: all 0.5s ease-in-out;}
+    .btn-shop.black,.btn-shop:hover{filter: invert(1);-webkit-filter: invert(1);}
+    .btn-shop.black:hover{filter: none;}
 /*Button*/
+.slides{position: absolute;top: 0;left: 0;width: 100%;height: 100%;transition: all 0.5s ease-in-out;opacity: 0;}
+.slides.active{opacity: 1;}
 
 @media only screen and (min-width : 320px){
     h1{font-size: 5.5em;font-weight: 600;line-height: 1em;}
@@ -54,14 +57,18 @@ img{width: auto;height: auto;max-width: 100%;display: block;}
     footer{background:#0F2421 ; padding: 2rem 0; font-size: 0.4em;}
     footer h1,footer small,footer nav a{color:#fff}
     footer small{font-size: 0.875rem;padding-top: 2rem;padding-bottom: 2rem;display: block;}
-    footer nav ul li a{font-size: 1rem;display: inline-block;}
-    footer nav ul li li a{font-size: 0.875rem;padding: 0.25rem;}
+    footer nav ul li a{font-size: 1rem;display: inline-block;font-weight: bold;}
+    footer nav ul li li a{font-size: 0.875rem;padding: 0.25rem;font-weight: normal;}
+    footer address{line-height: 1.5em;font-style: normal;}
+    footer nav{width: 100%;}
+    footer address{font-size: 0.875rem;}
+    footer .address{margin-top: 1rem;}
 
     .banner{background: rgb(16,36,33);padding:22% 0 14.5% 0}
     .banner span,.banner h1,.banner p{color: #fff;}
     .banner .btn-sec{margin-top: 3rem;}
     .cont_box{font-size: 0.5em;}
-    .banner p{font-size: 1rem;margin-top: 1rem;display: block;}
+    .banner p{font-size: 1rem;margin-top: 1rem;display: block;font-weight: 400;}
     .banner span{font-size: 0.875rem;text-transform: uppercase;}
     .banner .button{margin-right: 1.75em;}
     .banner .img{margin-top: 1.5rem;}
@@ -80,18 +87,20 @@ img{width: auto;height: auto;max-width: 100%;display: block;}
     .about_us .video_link{color: #fff;font-size: 0.875rem;text-decoration: underline;margin-top: 2rem;display: block;}
     .about_us .col-slider{background:#FFF3F3;padding: 1.5rem; font-size: 0.5em;}
     .about_us .slider img{display: inline-block;max-width: 25px;}
-    .about_us h3{color:#342B42;padding: 0.5rem 1rem;}
+    .about_us h3{color:#342B42;padding: 0.5rem 1rem;line-height: 1.6em;}
     .about_us .slider span{display: block;font-size: 1.125rem;}
     .about_us .slider small{display: block;font-size: 0.75rem;}
     .about_us .info{padding-right: 1rem;}
+    .about_us .col:last-child{flex-basis: 100%;}
 
     .tablets img{width: 100%;}
+    .tablets .container{border-bottom: 1px solid #DFDFDF;}
 
     .benefits{padding: 8% 0;}
     .benefits img{display: inline-block;margin-bottom:2rem;}
     .benefits .title{margin-bottom: 2rem;font-size: 0.4em;}
     .benefits .col{margin-bottom: 2rem;flex-basis: 100%;}
-
+    .benefits p{color: #151442;font-weight: 500;}
 }
 @media only screen and (min-width : 640px){
     .products .product-box{flex-basis: 48%;}
@@ -106,9 +115,14 @@ img{width: auto;height: auto;max-width: 100%;display: block;}
     .about_us .slider span{font-size: 1.375rem;}
     .about_us .slider small{font-size: 0.875rem;}
 
-    .benefits .col{flex-basis: 31%;padding: 0 8%;}
+    .benefits .col{flex-basis: 31%;padding: 0 7%;}
 
-    footer ul{width:40%;display: inline-block;vertical-align: top;}
+    footer ul{width:40%;display: inline-block;vertical-align: top;text-align: left;}
+    footer .sub{width: 100%;margin-top: 3rem;}
+    footer nav{width: 50%;text-align: right;}
+    footer nav ul li li a{padding-bottom: 0.75rem;}
+    footer small{padding: 3.875rem 0 0 0;}
+    footer .address{margin-top: 0;}
 }
 @media only screen and (min-width : 1024px){
     
@@ -129,18 +143,37 @@ img{width: auto;height: auto;max-width: 100%;display: block;}
     .banner .cont_box{flex-basis: 53.25%;padding-left: 7%;font-size: 0.7em;}
     .banner .img{flex-basis: 46%;margin-top: 0;}
     .banner_items{align-items: center;}
-
+    
     .products .product-box{flex-basis: 25%;}
-
+    .products .title_sec{margin-bottom: 4rem;}
+    
     .about_us .col-slider{font-size: 0.65em;padding: 2.5rem;}
+    .benefits .title{margin-bottom: 5rem;}
 }
 /* .button{padding: 1.125rem 1.56rem;} */
 
 @media only screen and (min-width : 1360px){
+    .about_us .col-slider{font-size: 0.9em;}
     .banner .cont_box,.about_us .col-slider{font-size: 0.8em;}
     .benefits .title,.title_sec, .about_us .title,footer{font-size: 0.75em;}
+    
+    footer{padding: 9.125rem 0 8.9rem 0;}
+    .banner .btn-sec{margin-top: 5.375rem;}
+    .products{padding: 10.5rem 0 11.875rem 0;}
+    .products .title_sec{margin-bottom: 6rem;}
+    
+    .about_us .col{padding: 5.31rem 3.75rem;}
+    .about_us .slider img{max-width: 35px;}
+    .about_us .info{padding-right: 4.68rem;}
+    .about_us h3{padding: 0.5rem 1.875rem;}
+    .about_us .video_link{margin-top: 6.875rem;}
+    .tablets.products{padding: 9.875rem 0 0;}
+    .tablets.products .container{padding-bottom: 5.5rem;}
+    .benefits .title{margin-bottom: 7.375rem;}
+    .benefits{padding: 10.25rem     0;}
 }
 @media only screen and (min-width : 1920px){
     .banner .cont_box,.title_sec, .about_us .title,.about_us .col-slider,.benefits .title,footer{font-size: 1em;}
-
+    
+    .products .title_sec{margin-bottom: 8.625rem;}
 }
