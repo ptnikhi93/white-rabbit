@@ -1,5 +1,4 @@
 @charset "utf-8";
-@import url(../font/index.ess);
 *{margin:0;padding:0;text-decoration:none;list-style:none;outline:none;border:none;position:relative;line-height:1.2em;}
 *, *:before, *:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 body, html{width:100%;min-width:320px;}
@@ -19,7 +18,8 @@ img{width: auto;height: auto;max-width: 100%;display: block;}
 .container{width:94%;max-width: 1720px;margin: 0 auto;}
 
 /*Button*/
-    .button{display: inline-block;width: auto;background: #C7E1BF;border-radius: 48px;padding: 0.875rem 1rem;font-size: 0.875rem;color: #102522;}
+    .button{display: inline-block;width: auto;background: #C7E1BF;border-radius: 48px;padding: 0.875rem 1rem;font-size: 0.875rem;color: #102522;transition: all 0.5s ease-in-out;-webkit-transition: all 0.5s ease-in-out;}
+    .button:hover{filter: invert(1);-webkit-filter: invert(1);}
     .btn-shop{display: inline-block;width: auto;background: #fff url(../images/arrow.png) no-repeat 88% center;border-radius: 48px;padding: 0.875rem 2.75rem 0.875rem 1rem;font-size: 0.875rem;color: #102522;border: 1px solid  #C4C4C4;background-size: 15px;transition: all 0.5s ease-in-out;-webkit-transition: all 0.5s ease-in-out;}
     .btn-shop.black,.btn-shop:hover{filter: invert(1);-webkit-filter: invert(1);}
     .btn-shop.black:hover{filter: none;}
@@ -27,21 +27,25 @@ img{width: auto;height: auto;max-width: 100%;display: block;}
 .slides{position: absolute;top: 0;left: 0;width: 100%;height: 100%;transition: all 0.5s ease-in-out;opacity: 0;}
 .slides.active{opacity: 1;}
 
+.scrollToTop{position: absolute;top: 0;right: 0;width: 40px;height: 40px;background: url(../images/arw-up.png) no-repeat center;background-size: 15px;border: 1px solid #fff;border-radius: 50%;cursor: pointer;}
+
 @media only screen and (min-width : 320px){
     h1{font-size: 5.5em;font-weight: 600;line-height: 1em;}
     h2{font-size: 5em;font-weight: 500;color: #151442;}
     h3{font-size: 2.25em; font-weight: 500;color: #151442;}
 
-    header{background: transparent;position: fixed;top: 0;left: 0;padding: 2.125rem 0;width: 100%;z-index: 4;}
+    header{background: transparent;position: fixed;top: 0;left: 0;padding: 2.125rem 0;width: 100%;z-index: 4;transition: all 0.5s ease-in-out;}
     header.act{background: #293e3e;padding: 1.25rem 0;}
     header nav{position: fixed;right: -100%;width: 100%;max-width: 360px;height: 100%;background: #fff;top: 0;transition: all 0.5s ease-in-out;-webkit-transition: all 0.5s ease-in-out;z-index: 3;}
-    header .right_col{justify-content: flex-end;width: auto;}
+    header .right_col{justify-content: flex-end;width: auto;flex-basis: 50%;}
     header nav.act{right: 0;}
     header ul{padding: 1rem;}
-    header li a{display: inline-block;font-size: 0.875rem;font-weight: 500;color: #151442;padding:0.25rem 0;}
+    header li a{display: inline-block;font-size: 0.875rem;font-weight:500;color: #151442;padding:0.25rem 0;}
     .user_section{width: auto;margin-right: 2rem;}
     .user_login{display: inline-block;width: 20px;height: 24px;background: url(../images/user_icn.png) no-repeat center;background-size: 90%;margin-right: 1.5rem;}
-    /* .cart{display: inline-block;width: 23px;height: 26px;background: url(../images/cart_icn.png) no-repeat center;background-size: 90%;filter: invert(100%) brightness(10);-webkit-filter: invert(100%) brightness(10);} */
+
+    .cart{cursor: pointer;}
+    header.act .cart{filter: invert(1) brightness(3);-webkit-filter: invert(1) brightness(3);cursor: pointer;}
     .cart span{width: 23px;height: 23px;display: inline-block;border-radius:50%;background: #151442;color: #fff;font-size: 0.875rem;padding: 0.25rem 0.5rem ;vertical-align: middle;}
     .cart img{display: inline-block;filter: invert(100%) brightness(10);-webkit-filter: invert(100%) brightness(10);vertical-align: middle  ;}
     .menu{width: 28px;cursor: pointer; }
@@ -64,7 +68,7 @@ img{width: auto;height: auto;max-width: 100%;display: block;}
     footer address{font-size: 0.875rem;}
     footer .address{margin-top: 1rem;}
 
-    .banner{background: rgb(16,36,33);padding:22% 0 14.5% 0}
+    .banner{background: rgb(16,36,33);padding:26% 0 14.5% 0}
     .banner span,.banner h1,.banner p{color: #fff;}
     .banner .btn-sec{margin-top: 3rem;}
     .cont_box{font-size: 0.5em;}
@@ -94,13 +98,21 @@ img{width: auto;height: auto;max-width: 100%;display: block;}
     .about_us .col:last-child{flex-basis: 100%;}
 
     .tablets img{width: 100%;}
-    .tablets .container{border-bottom: 1px solid #DFDFDF;}
+    .tablets .container{border-bottom: 1px solid #DFDFDF;padding-bottom: 2rem;}
+    .tablets .product-box{padding: 1rem}
+    /* .tablets .product-box .details{padding: 2rem;padding-bottom: 0;} */
+    .t-slider{position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
+    .slider-items{height: 100%;overflow: hidden;width: 100%;}
+    .t-slider .product_items,.t-slider .product-box {height: 100%;}
+    .navs{position: absolute;top: 50%;left: 0;transform: translateY(-50%);width: 100%;z-index: 2;}
+    .navs .arw{width: 50px;height: 50px;border: 1px solid #000;border-radius: 50%;background: #000 url(../images/arw-up.png) no-repeat center; background-size: 20px;cursor: pointer;filter: invert(1);transform:rotate(90deg);}
+    .navs .prev{transform: rotate(-90deg);}
 
     .benefits{padding: 8% 0;}
     .benefits img{display: inline-block;margin-bottom:2rem;}
     .benefits .title{margin-bottom: 2rem;font-size: 0.4em;}
     .benefits .col{margin-bottom: 2rem;flex-basis: 100%;}
-    .benefits p{color: #151442;font-weight: 500;}
+    .benefits p{color: #151442;font-weight: bold;line-height: 1.4em;font-size: 0.875rem;}
 }
 @media only screen and (min-width : 640px){
     .products .product-box{flex-basis: 48%;}
@@ -109,14 +121,18 @@ img{width: auto;height: auto;max-width: 100%;display: block;}
 @media only screen and (min-width : 768px){
     .products .product-box{flex-basis: 33%;}
     .products .price{margin: 1.125rem 0;}
-
+    .tablets .product-box{flex-basis: 31%;}
+    
     .about_us .col:first-child{flex-basis: 53.89%;}
     .about_us .col:last-child{flex-basis: 46%;}
     .about_us .slider span{font-size: 1.375rem;}
     .about_us .slider small{font-size: 0.875rem;}
 
-    .benefits .col{flex-basis: 31%;padding: 0 7%;}
+    .benefits .container{max-width: 1024px;}
+    .benefits .col{flex-basis: 31%;padding: 0 5%;}
 
+    footer{padding: 6rem 0;}
+    .scrollToTop{top: -4rem;}
     footer ul{width:40%;display: inline-block;vertical-align: top;text-align: left;}
     footer .sub{width: 100%;margin-top: 3rem;}
     footer nav{width: 50%;text-align: right;}
@@ -136,7 +152,6 @@ img{width: auto;height: auto;max-width: 100%;display: block;}
     .cart img{filter: none;}
     .user_section{margin-right: 0;}
 
-    footer{padding: 5rem 0;}
     /* header li a */
     .banner{background: rgb(16,36,33);background: linear-gradient(90deg, rgba(16,36,33,1) 0%, rgba(16,36,33,1) 60%, rgba(255,255,255,1) 60%);padding:8% 0 14.5% 0}
     .banner p{margin-top: 3.75rem;font-size: 1.375rem;}
@@ -145,6 +160,7 @@ img{width: auto;height: auto;max-width: 100%;display: block;}
     .banner_items{align-items: center;}
     
     .products .product-box{flex-basis: 25%;}
+    .tablets.products .product-box{flex-basis: 23%;}
     .products .title_sec{margin-bottom: 4rem;}
     
     .about_us .col-slider{font-size: 0.65em;padding: 2.5rem;}
@@ -153,11 +169,16 @@ img{width: auto;height: auto;max-width: 100%;display: block;}
 /* .button{padding: 1.125rem 1.56rem;} */
 
 @media only screen and (min-width : 1360px){
+    header li{margin-right: 2rem;}
+    .user_login{margin: 0 2.875rem;}
+
     .about_us .col-slider{font-size: 0.9em;}
     .banner .cont_box,.about_us .col-slider{font-size: 0.8em;}
     .benefits .title,.title_sec, .about_us .title,footer{font-size: 0.75em;}
     
     footer{padding: 9.125rem 0 8.9rem 0;}
+    .scrollToTop{top: -4rem;}
+
     .banner .btn-sec{margin-top: 5.375rem;}
     .products{padding: 10.5rem 0 11.875rem 0;}
     .products .title_sec{margin-bottom: 6rem;}
